@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Bitionvest Dashboard</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<div class="logo">
+
+<h1>Bitionvest</h1>
+
+<p>Premium Investment Dashboard</p>
+
+</div>
+
+
+
+<div class="welcome-card">
+
+<p>Available Balance</p>
+
+<h1 id="balance">$0.00</h1>
+
+<small> Account</small>
+
+</div>
+
+
+
+
+<div class="dashboard-grid">
+
+
+<div class="welcome-card">
+
+<h3>Total Investment</h3>
+
+<h2 id="investment">$0.00</h2>
+
+</div>
+
+
+
+<div class="welcome-card">
+
+<h3>Total Profit</h3>
+
+<h2 id="profit">$0.00</h2>
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="welcome-card">
+
+<h2>Investment Plans</h2>
+
+<p>Select a plan to continue</p>
+
+
+<button onclick="goInvest()">
+Start Investment
+</button>
+
+
+</div>
+
+
+
+
+
+<div class="welcome-card">
+
+<h2>Recent Transactions</h2>
+
+<p id="transaction">
+No transactions available
+</p>
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+<script type="module">
+
+
+import { db } from "./firebase.js";
+
+
+import { doc, getDoc } from 
+"https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+
+
+
+const account =
+doc(db, "bitionvestData", "mainAccount");
+
+
+
+const result =
+await getDoc(account);
+
+
+
+if(result.exists()){
+
+
+const data = result.data();
+
+
+
+document.getElementById("balance").innerHTML =
+"$" + Number(data.balance).toLocaleString();
+
+
+
+document.getElementById("investment").innerHTML =
+"$" + Number(data.investment).toLocaleString();
+
+
+
+document.getElementById("profit").innerHTML =
+"$" + Number(data.profit).toLocaleString();
+
+
+}
+
+
+
+window.goInvest = function(){
+
+window.location.href="invest.html";
+
+}
+
+
+
+</script>
+
+
+
+</body>
+
+</html>

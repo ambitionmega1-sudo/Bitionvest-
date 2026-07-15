@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Bitionvest Admin</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<div class="logo">
+
+<h1>Bitionvest</h1>
+
+<p>Admin Control Panel</p>
+
+</div>
+
+
+
+<div class="welcome-card">
+
+<h2>Update Demo Account</h2>
+
+
+<input id="balance" type="number" placeholder="Available Balance">
+
+
+<input id="investment" type="number" placeholder="Investment">
+
+
+<input id="profit" type="number" placeholder="Profit">
+
+
+<button onclick="updateAccount()">
+Save Changes
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+<script type="module">
+
+import { db } from "./firebase.js";
+
+import { doc, setDoc } from 
+"https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+
+
+window.updateAccount = async function(){
+
+
+let balance =
+Number(document.getElementById("balance").value);
+
+
+let investment =
+Number(document.getElementById("investment").value);
+
+
+let profit =
+Number(document.getElementById("profit").value);
+
+
+
+await setDoc(
+
+doc(db,"bitionvestData","mainAccount"),
+
+{
+
+balance: balance,
+
+investment: investment,
+
+profit: profit
+
+}
+
+);
+
+
+
+alert("Account updated successfully");
+
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>

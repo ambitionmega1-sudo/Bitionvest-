@@ -1,0 +1,60 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #000000, #2b2100);
+    color: white;
+    min-height: 100vh;
+}
+
+.container {
+    padding: 25px;
+}
+
+.logo {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.logo h1 {
+    color: #f5d76e;
+    font-size: 40px;
+}
+
+.welcome-card {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid #f5d76e;
+    border-radius: 20px;
+    padding: 25px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+button {
+    width: 100%;
+    padding: 16px;
+    margin-top: 20px;
+    border-radius: 15px;
+    border: none;
+    background: #f5d76e;
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+}input {
+
+width:100%;
+
+padding:15px;
+
+margin-top:15px;
+
+border-radius:10px;
+
+border:1px solid #f5d76e;
+
+background:#111;
+
+color:white;
+
+font-size:16px;
+
+}
